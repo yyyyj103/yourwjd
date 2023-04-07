@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+        *{
+            margin: 0;
+        }
+
+        .logo {
+            float: left;
+            margin: 30px 20px 20px 30px;
+        }
+
+        /*스크롤, 마우스 오버 시 변하는 헤더*/
+        header{
+            overflow: hidden;
+            height: 100px;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 253, 253, 0.5);
+            position: fixed; 
+            transition: all 1s; /*부드럽게 색 변화*/
+        }
+        header.over{ background-color: #ffffff; }
+        header.over #header_menu { color: black; }
+        #header_menu {
+            float: right;
+            margin: 40px 20px 0 0;
+        }
+        #header_menu li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+
+        ul {list-style-type: none;}
+
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .blind{display: none;}
+
+        /*화면에 배경이미지가 꽉 차도록*/
+        #section1 {
+            background-image: url(./images/top1.jpg); 
+            height: 100vh;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        /*텍스트를 감싸는 박스*/
+        #box {
+            border: 3px solid #00c914;
+            display: inline-block; /*텍스트만 감싸도록*/
+            height: 40px;
+            width: 100%;
+            overflow: hidden; /*넘치는 부분이 보이지 않도록*/
+        }
+
+        .main_text {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .main_member {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            margin-top: 50px;
+            padding: 0;
+        }
+
+        .member img {
+            width: 290px;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        .txt {
+            display: block;
+            margin-left: 30px;
+            padding: 40px 0 40px 0;
+            text-align: left;
+            font-size: 20px;
+            border-bottom: 1px solid #0162194e;
+        }
+
+        .image {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            transition: all 1s ease;
+        }
+
+        .scroll-image-container {
+            text-align: center;
+            height: 500px;
+        }
+
+        .scroll-image {
+            width: 400px;
+            margin-top: 50px;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .gunso {
+            margin-top: 30px;
+            width: 800px;
+        }
+
+        #count{
+            display: flex;
+            justify-content: center;
+            color:white;
+            font-size: 15px;
+            position: fixed;
+            top: 123px;
+            right: 30px;
+            border-radius: 50%;
+            background: #00c914;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        #scroll-to-top-button {
+            background-color: #ffffff00;
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            display: inline-block;
+            border: none;
+            width: 40px;
+            height: 40px;
+            font-size: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #scroll-to-top-button:hover {color: #00c914;}
+
+        #scroll-to-top-button>span {
+            display: block;
+            font-variation-settings: 'wght' 800;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 48
+        }
+
+        .bottom {
+            border-top: 3px solid #0162194e;
+            margin-top: 50px;
+        }
+
+        #footer_menu {
+            float: right;
+            margin: 40px 20px 0 0;
+        }
+
+        #footer_menu li {
+            display: inline-block;
+            margin-right: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="logo">
+            <img src="images/keroro_top_logo.png">
+        </div>
+        <nav>
+            <ul id="header_menu">
+                <b>
+                    <li><a href="#">소대 소개</a></li>
+                    <li><a href="#">침략 영역</a></li>
+                    <li><a href="#">인재 채용</a></li>
+                    <li><a href="#">지구 침략하기</a></li>
+                </b>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="section1">
+        <span class="blind">메인사진</span>
+    </section>
+
+    <section>
+        <div class="main_text">
+            <h1><p id="box">ABOUT KERORO PLATOON</p></h1>
+            <h5>두꺼비 성운 제 58번 행성 케론별의 제 3호 우주 침략군소속 지구방위대특수선발공작부대를 소개합니다</h5>
+        </div>
+
+        <ul class="main_member">
+            <li class="member">
+                <img src="images/keroro.jpg"> <br>
+                <span class="txt"><strong>케로로</strong></span>
+            </li>
+            <li class="member">
+                <img src="images/tamama.jpg"> <br>
+                <span class="txt"><strong>타마마</strong></span>
+            </li>
+            <li class="member">
+                <img src="images/giroro.jpg"> <br>
+                <span class="txt"><strong>기로로</strong></span>
+            </li>
+            <li class="member">
+                <img src="images/kururu.jpg"> <br>
+                <span class="txt"><strong>쿠루루</strong></span>
+            </li>
+            <li class="member">
+                <img src="images/dororo.jpg"> <br>
+                <span class="txt"><strong>도로로</strong></span>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <img class="image dagger1" src="images/dagger.png">
+        <img class="image dagger2" src="images/dagger.png">
+        <img class="image dagger3" src="images/dagger.png">
+
+        <div class="scroll-image-container">
+            <img src="images/dororo_info.png" alt="Image" class="scroll-image">
+        </div>
+    </section>
+
+    <section class="main_text">
+        <h1>CHALLENGE ME</h1>
+        <h5>케로로 소대와 함께 지구를 침략할 인재를 기다립니다</h5>
+        <img class="gunso" src="images/gunso.jpg">
+    </section>
+
+    <p id="count">247</p>
+
+    <button id="scroll-to-top-button">
+        <span class="material-symbols-outlined">arrow_upward</span>
+        TOP
+    </button>
+
+    <script>
+        var myHeader = document.getElementById("header"); /*header 변수 할당*/
+        console.log(myHeader);
+        myHeader.onmouseover = function(){  /*헤더에 마우스  오버 시*/
+            console.log(myHeader);
+            console.log(this); /*this가 myHeader*/
+            this.classList.add("over") /*over class를 추가한다(css)*/
+        }
+        myHeader.onmouseout = function(){ /*헤더에 마우스 아웃 시*/
+            this.classList.remove("over") /*over class를 삭제한다(css)*/
+        }
+
+        window.addEventListener("scroll", function(){ /*스크롤 시*/
+            console.log(window.scrollY); /*스크롤 y값을 출력*/
+            if(window.scrollY > 200){ /*스크롤 y값이 200이 넘으면*/
+                console.log("200 이상"); /*200이상을 출력*/
+                myHeader.style.top = -100 + "px"; /*헤더 css의 top위치를 -100px 한다*/
+            }
+            else{ /*200을 넘지 않을 시*/
+                console.log("200 미만") /*200미만을 출력*/
+                myHeader.style.top = 0; /*헤더 css의 top위치를 0px 한다*/
+            }
+        }); 
+
+        const element = document.getElementById("box");/*box 변수 할당*/
+        window.addEventListener("scroll", function(){ /*스크롤 시*/
+            width = Math.floor(window.scrollY/(document.body.clientHeight-window.innerHeight) * 100) + "%"; /*스크롤 위치에 따라 box width가 변화*/
+            element.style.width = width; /*box css 요소 중 width에 적용*/
+        });
+
+        //오늘부터 12월 9일까지 날짜 계산
+        const now = new Date(); //오늘 날짜
+        const futureDate = new Date('2023-12-09'); //목표 날짜
+        let timeDiff = futureDate.getTime() - now.getTime(); //목표 날짜 - 오늘 날짜 (=며칠 남았는지)
+        //일로 바꾸기
+        let daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+        var newDiv = document.createElement("div");
+        newDiv.id = "count";
+        var divText = document.createTextNode("D-" + (daysDiff))
+        newDiv.appendChild(divText);
+        document.body.appendChild(newDiv);
+
+        newDiv.addEventListener("mouseover", function(){
+            newDiv.textContent = "케로로 \n 생일"; 
+            newDiv.style.whiteSpace = "pre-line";
+            newDiv.style.fontSize = "12px";
+            newDiv.style.lineHeight = "1";
+            newDiv.style.alignItems = "center";
+        })
+        newDiv.addEventListener("mouseout", function(){
+            newDiv.textContent = "D-" + daysDiff;
+            newDiv.style.fontSize = "";
+            newDiv.style.lineHeight = "";
+        })
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+        window.addEventListener('scroll', function () {
+            var button = document.getElementById('scroll-to-top-button');
+            if (window.pageYOffset > 100) {
+                button.style.display = 'block';
+            }
+            else {
+                button.style.display = 'none';
+            }
+        });
+        var button = document.querySelector("#scroll-to-top-button");
+        button.addEventListener("click", scrollToTop);
+
+        const image1 = document.querySelector('.dagger1');
+        const image2 = document.querySelector('.dagger2');
+        const image3 = document.querySelector('.dagger3');
+        window.addEventListener('scroll', () => {
+            const scrollposition = window.scrollY;
+            if (scrollposition >= 450) {
+                image1.style.transform = 'translateX(800px)';
+                image2.style.transform = 'translate(350px, 200px)';
+                image3.style.transform = 'translate(950px, 350px)';
+            }
+            else {
+                image1.style.transform = 'translateX(-300px)';
+                image2.style.transform = 'translateX(-300px)';
+                image3.style.transform = 'translateX(-300px)';
+            }
+        });
+
+        const image = document.querySelector(".scroll-image");
+        const imageHeight = image.clientHeight; 
+
+        function checkScroll() {
+            const currentPosition = window.pageYOffset; 
+
+            const topPosition = image.getBoundingClientRect().top + currentPosition; 
+
+            if (topPosition < currentPosition + window.innerHeight - imageHeight / 2 &&
+                topPosition + imageHeight > currentPosition) {
+                image.style.opacity = "1"; 
+            } else if (topPosition > currentPosition) {
+                 image.style.opacity = "0"; 
+            }
+        }
+
+        window.addEventListener("scroll", checkScroll);    
+
+    </script>
+
+    <footer class="bottom">
+        <div class="logo">
+            <img src="images/keroro_top_logo.png">
+        </div>
+        <nav>
+            <ul id="footer_menu">
+                <b>
+                    <li><a href="#">온라인침략시스템</a></li>
+                    <li><a href="#">고객문의</a></li>
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">개인정보처리방침</a></li>
+                </b>
+            </ul>
+        </nav>
+    </footer>
+</body>
+
+</html>
